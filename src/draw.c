@@ -7,7 +7,7 @@ void drawMap(void) { //determines color and draws map
                 mvaddch(y, x, map[y][x].ch | map[y][x].color);
             }
             else if (map[y][x].seen) {
-                mvaddch(y, x, map[y][x].ch | map[y][x].color);
+                mvaddch(y, x, map[y][x].ch | COLOR_PAIR(SEEN_COLOR));
             }
             else {
                 mvaddch(y, x, ' ');
