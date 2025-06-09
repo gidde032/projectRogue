@@ -42,10 +42,10 @@ typedef struct { //entities such as the player
     Position pos;
     char ch;
     int color;
-    int hP;
-    int maxHP;
-    int attack;
-    bool alive;
+    //int hP;
+    //int maxHP;
+    //int attack;
+    //bool alive;
 } Entity;
 
 //draw funcs
