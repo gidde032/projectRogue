@@ -83,15 +83,17 @@ int getDistance(Position origin, Position target);
 bool isInMap(int y, int x);
 bool lineOfSight(Position origin, Position target);
 int getSign(int a);
-/*
+
 //goblin funcs
 Entity* createGoblin(Position pos, int hP, int attack);
-void gobTurn(void);
+//void gobTurn(void);
 
+/*
 //combat funcs
 void attack(Entity* attacker, Entity* defender);
 bool checkPColl(Position newPos);
 */
+
 //externs
 extern Entity* player;
 extern const int MAP_HEIGHT;
