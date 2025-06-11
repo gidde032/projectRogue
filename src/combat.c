@@ -15,5 +15,8 @@ bool checkPColl(Position newPos) {
             return true;
         }
     }
+    if (player->pos.y == newPos.y && player->pos.x == newPos.x) {
+        return true;
+    }
     return false;
 }

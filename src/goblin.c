@@ -12,14 +12,14 @@ Entity* createGoblin(Position pos, int hP, int attack) { //creates a goblin type
     return newGob;
 }
 
-/* void gobTurn(void) {
+void gobTurn(void) {
     for (int i = 0; i < monCount; i++) {
         if (mons[i]->alive && lineOfSight(mons[i]->pos, player->pos)) {
             Position delta = {((player->pos.y > mons[i]->pos.y) ? 1 : -1), ((player->pos.x > mons[i]->pos.x) ? 1 : -1)};
             Position newPos = {(mons[i]->pos.y + delta.y), (mons[i]->pos.x + delta.x)};
-            if(map[newPos.y][newPos.x].walkable) {
+            if(map[newPos.y][newPos.x].walkable && !checkPColl(newPos)) {
                 mons[i]->pos = newPos;
             }
         }
     }
-} */
+}

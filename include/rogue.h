@@ -86,7 +86,7 @@ int getSign(int a);
 
 //goblin funcs
 Entity* createGoblin(Position pos, int hP, int attack);
-//void gobTurn(void);
+void gobTurn(void);
 
 
 //combat funcs
