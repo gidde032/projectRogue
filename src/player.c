@@ -1,6 +1,6 @@
 #include <rogue.h>
 
-Entity* createPlayer (Position start_pos) { //takes starting position and spawns player with specified icon and color
+Entity* createPlayer (Position start_pos) { //takes starting position and spawns player with specified icon, color, hP/maxHP, atk and alive bool
     Entity* newPlayer = calloc(1, sizeof(Entity));
     
     newPlayer->pos.y = start_pos.y;
@@ -37,7 +37,7 @@ void handleInput(int input) { //controls, wasd movement
 
 void movePlayer(Position newPos) { //resets fov and creates new one after each legal player movement
     {
-        if (map[newPos.y][newPos.x].walkable && !checkPColl(newPos)) {
+        if (map[newPos.y][newPos.x].walkable && !checkPColl(newPos)) { //checks mon collision
             clearFOV(player);
             player->pos = newPos;
             makeFOV(player);

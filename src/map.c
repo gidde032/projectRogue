@@ -42,11 +42,11 @@ Position setupMap(void) {
         }
     }
 
-    for (int z = 0; z < n_rooms; z += 3) {
+    for (int z = 0; z < n_rooms; z += 3) { //draws goblins for every 3 rooms, balances amt of mons
         int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
         int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
         Position gobPos = {gobY, gobX};
-        Entity* gob = createGoblin(gobPos, ((rand() % 6) + 6), ((rand() % 3) + 1));
+        Entity* gob = createGoblin(gobPos, ((rand() % 6) + 6), ((rand() % 3) + 1)); //creates gob hP and atk, hP is (6 +- 6) and atk is (1 +- 3) currently
         mons[monCount++] = gob;
     } 
 

@@ -23,7 +23,7 @@ void drawEntity(Entity* entity) {  //determines color and draws player
 void drawEverything(void) { //clears window and draws player + map
     clear();
     drawMap();
-    for (int i = 0; i < monCount; i++) { //draws alive monsters
+    for (int i = 0; i < monCount; i++) { //draws all visible monsters
         if (map[mons[i]->pos.y][mons[i]->pos.x].visible) {
             drawEntity(mons[i]);
         }

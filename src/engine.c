@@ -27,6 +27,7 @@ void gameLoop(void) { //gameplay loop, ends game when user presses specified cha
         if (ch == 'q') {break;}
         handleInput(ch);
         gobTurn();
+        if (player->hP < 0) {break;}
         drawEverything();
     }
 }
