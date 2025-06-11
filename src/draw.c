@@ -29,5 +29,5 @@ void drawEverything(void) { //clears window and draws player + map + mons
         }
     } 
     drawEntity(player);
-    mvprintw(0,0, "HP: %d/%d. Don't get jugged.", player->hP, player->maxHP);
+    mvprintw(0,0, "HP: %d/%d. Don't get jugged.", player->hP, player->maxHP); //HP bar
 }

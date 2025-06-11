@@ -6,6 +6,7 @@
 #include <time.h>
 #include <math.h>
 
+//color pairs for entities and tiles
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
 #define GOB_COLOR 3
@@ -88,6 +89,7 @@ int getSign(int a);
 //goblin funcs
 Entity* createGoblin(Position pos, int hP, int attack);
 void gobTurn(void);
+bool checkGColl(Position newPos);
 
 
 //combat funcs

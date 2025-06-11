@@ -4,7 +4,7 @@ bool cursesSetup(void) { //sets up ncurses library, displays error msg if comput
     initscr();
     noecho();
     curs_set(0);
-    if (has_colors()) {
+    if (has_colors()) { //entity and tile color initialization
         start_color();
         init_pair(VISIBLE_COLOR, COLOR_WHITE, COLOR_BLACK);
         init_pair(SEEN_COLOR, COLOR_BLUE, COLOR_BLACK);
@@ -24,11 +24,12 @@ void gameLoop(void) { //gameplay loop, ends game when user presses specified cha
     makeFOV(player);
     drawEverything();
 
-    while(ch = getch()) {
+    while(ch = getch()) { //input handling core of game
         if (ch == 'q') {break;}
-        gobTurn();
+        gobTurn(); //gobTurn first to give chance to attack player
+        if (player->hP <= 0) {break;} //kills player if mons jugged them
+        drawEverything();
         handleInput(ch);
-        if (player->hP < 0) {break;}
         drawEverything();
     }
 }
@@ -36,7 +37,6 @@ void gameLoop(void) { //gameplay loop, ends game when user presses specified cha
 void closeGame(void) { //exits game and frees leftover memory
     endwin();
     free(player);
-    
     for (int i = 0; i < monCount; i++) {
         if (mons[i]) {
             free(mons[i]);

@@ -37,7 +37,7 @@ Position setupMap(void) {
             chests[chestsPlaced] = createChest(rooms[i].center);
             chestsPlaced++;
         } */
-        if (i > 0) {
+        if (i > 0) { //after first room connects separated rooms
             connectRooms(rooms[i-1].center, rooms[i].center);
         }
     }

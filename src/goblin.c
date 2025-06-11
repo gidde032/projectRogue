@@ -17,8 +17,10 @@ void gobTurn(void) {
         if (mons[i]->alive && lineOfSight(mons[i]->pos, player->pos)) {
             Position delta = {((player->pos.y > mons[i]->pos.y) ? 1 : -1), ((player->pos.x > mons[i]->pos.x) ? 1 : -1)};
             Position newPos = {(mons[i]->pos.y + delta.y), (mons[i]->pos.x + delta.x)};
-            if(map[newPos.y][newPos.x].walkable && !checkPColl(newPos)) {
+            if(map[newPos.y][newPos.x].walkable && !checkGColl(newPos)) {
+                clearFOV(player);
                 mons[i]->pos = newPos;
+                makeFOV(player);
             }
         }
     }
