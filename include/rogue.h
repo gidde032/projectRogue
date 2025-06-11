@@ -8,6 +8,7 @@
 
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
+#define GOB_COLOR 3
 
 /* typedef struct {
     Tile** tiles;

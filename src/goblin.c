@@ -4,7 +4,7 @@ Entity* createGoblin(Position pos, int hP, int attack) { //creates a goblin type
     Entity* newGob = calloc(1, sizeof(Entity));
     newGob->pos = pos;
     newGob->ch = 'G';
-    newGob->color = COLOR_PAIR(VISIBLE_COLOR);
+    newGob->color = COLOR_PAIR(GOB_COLOR);
     newGob->hP = hP;
     newGob->maxHP = hP + (hP/5); //allows 1.2x overheal
     newGob->attack = attack;

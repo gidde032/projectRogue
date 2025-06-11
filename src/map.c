@@ -1,6 +1,6 @@
 #include <rogue.h>
 
-Tile** createMapTiles(void) {
+Tile** createMapTiles(void) { //generates base map with only wall tiles
     Tile** tiles = calloc(MAP_HEIGHT, sizeof(Tile*));;
 
     for (int y = 0; y < MAP_HEIGHT; y++) {
@@ -26,7 +26,7 @@ Position setupMap(void) {
     //Entity** chests = calloc(n_chests, sizeof(Entity));
     Position start_pos;
 
-    for (int i = 0; i < n_rooms; i++) {
+    for (int i = 0; i < n_rooms; i++) { //auto-gens between 12-32 rooms with a width of 5-17 tiles and a height of 3-9 tiles
         y = (rand() % (MAP_HEIGHT - 9)) + 1;
         x = (rand() % (MAP_WIDTH - 17)) + 1;
         height = (rand() % 6) + 3;

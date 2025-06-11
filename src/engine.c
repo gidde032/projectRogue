@@ -8,6 +8,7 @@ bool cursesSetup(void) { //sets up ncurses library, displays error msg if comput
         start_color();
         init_pair(VISIBLE_COLOR, COLOR_WHITE, COLOR_BLACK);
         init_pair(SEEN_COLOR, COLOR_BLUE, COLOR_BLACK);
+        init_pair(GOB_COLOR, COLOR_GREEN, COLOR_BLACK);
         return true;
     }
     else {
@@ -25,8 +26,8 @@ void gameLoop(void) { //gameplay loop, ends game when user presses specified cha
 
     while(ch = getch()) {
         if (ch == 'q') {break;}
-        handleInput(ch);
         gobTurn();
+        handleInput(ch);
         if (player->hP < 0) {break;}
         drawEverything();
     }

@@ -1,5 +1,6 @@
 #include <rogue.h>
 
+//extern declarations
 Entity* player;
 const int MAP_HEIGHT = 25;
 const int MAP_WIDTH = 100;
