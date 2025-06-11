@@ -29,5 +29,5 @@ void drawEverything(void) { //clears window and draws player + map
         }
     } */
     drawEntity(player);
-    //mvprintw(0,0, "HP; %d/%d", player->hP, player->maxHP);
+    mvprintw(0,0, "HP: %d/%d", player->hP, player->maxHP);
 }
