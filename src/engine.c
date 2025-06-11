@@ -35,10 +35,10 @@ void closeGame(void) { //exits game and frees leftover memory
     endwin();
     free(player);
     
-    /*for (int i = 0; i < monCount; i++) {
+    for (int i = 0; i < monCount; i++) {
         if (mons[i]) {
             free(mons[i]);
         }
     }
-    free(mons); */
+    free(mons);
 }

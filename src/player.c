@@ -37,10 +37,9 @@ void handleInput(int input) { //controls, wasd movement
 
 void movePlayer(Position newPos) { //resets fov and creates new one after each legal player movement
     {
-        if (map[newPos.y][newPos.x].walkable) {
+        if (map[newPos.y][newPos.x].walkable && !checkPColl(newPos)) {
             clearFOV(player);
-            player->pos.y = newPos.y;
-            player->pos.x = newPos.x;
+            player->pos = newPos;
             makeFOV(player);
         }
     }

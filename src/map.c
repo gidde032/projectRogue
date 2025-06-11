@@ -42,7 +42,7 @@ Position setupMap(void) {
         }
     }
 
-    for (int z = 0; z < n_rooms; z++) {
+    for (int z = 0; z < n_rooms; z += 3) {
         int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
         int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
         Position gobPos = {gobY, gobX};

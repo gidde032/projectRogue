@@ -1,5 +1,5 @@
-//#include <rogue.h>
-/*
+#include <rogue.h>
+
 void attack(Entity* attacker, Entity* defender) {
     defender->hP -= attacker->attack;
     if (defender->hP <= 0) {
@@ -16,4 +16,4 @@ bool checkPColl(Position newPos) {
         }
     }
     return false;
-} */
+}

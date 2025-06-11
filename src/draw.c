@@ -24,10 +24,10 @@ void drawEverything(void) { //clears window and draws player + map
     clear();
     drawMap();
     for (int i = 0; i < monCount; i++) { //draws alive monsters
-        if (mons[i]->alive && map[mons[i]->pos.y][mons[i]->pos.x].visible) {
+        if (map[mons[i]->pos.y][mons[i]->pos.x].visible) {
             drawEntity(mons[i]);
         }
     } 
     drawEntity(player);
-    mvprintw(0,0, "HP: %d/%d", player->hP, player->maxHP);
+    mvprintw(0,0, "HP: %d/%d. Don't get jugged.", player->hP, player->maxHP);
 }

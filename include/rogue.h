@@ -88,11 +88,10 @@ int getSign(int a);
 Entity* createGoblin(Position pos, int hP, int attack);
 //void gobTurn(void);
 
-/*
+
 //combat funcs
 void attack(Entity* attacker, Entity* defender);
 bool checkPColl(Position newPos);
-*/
 
 //externs
 extern Entity* player;
