@@ -99,7 +99,7 @@ extern Entity* player;
 extern const int MAP_HEIGHT;
 extern const int MAP_WIDTH;
 extern Tile** map;
-//extern Entity** mons;
-//extern int monCount;
+extern Entity** mons;
+extern int monCount;
 
 #endif

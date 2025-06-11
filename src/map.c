@@ -42,13 +42,13 @@ Position setupMap(void) {
         }
     }
 
-    /* for (int z = 0; z < n_rooms; z++) {
+    for (int z = 0; z < n_rooms; z++) {
         int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
         int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
         Position gobPos = {gobY, gobX};
         Entity* gob = createGoblin(gobPos, ((rand() % 6) + 6), ((rand() % 3) + 1));
         mons[monCount++] = gob;
-    } */
+    } 
 
     start_pos.y = rooms[0].center.y;
     start_pos.x = rooms[0].center.x;
