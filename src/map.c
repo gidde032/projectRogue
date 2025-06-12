@@ -42,7 +42,14 @@ Position setupMap(void) {
         }
     }
 
-    for (int z = 0; z < n_rooms; z += 3) { //draws goblins for every 3 rooms, balances amt of mons
+    for (int z = 0; z < n_rooms; z += 3) { //draws goblins for every 3 rooms & spiders for every 6; balances amt of mons
+        if ((z % 2) == 0) {
+            int spidY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+            int spidX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+            Position spidPos = {spidY, spidX};
+            Entity* spid = createSpid(spidPos, ((rand() % 2) + 5), ((rand() % 4) + 3));
+            mons[monCount++] = spid;
+        }
         int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
         int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
         Position gobPos = {gobY, gobX};

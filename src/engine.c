@@ -9,6 +9,7 @@ bool cursesSetup(void) { //sets up ncurses library, displays error msg if comput
         init_pair(VISIBLE_COLOR, COLOR_WHITE, COLOR_BLACK);
         init_pair(SEEN_COLOR, COLOR_BLUE, COLOR_BLACK);
         init_pair(GOB_COLOR, COLOR_GREEN, COLOR_BLACK);
+        init_pair(SPID_COLOR, COLOR_MAGENTA, COLOR_BLACK);
         return true;
     }
     else {
@@ -20,16 +21,16 @@ bool cursesSetup(void) { //sets up ncurses library, displays error msg if comput
 
 void gameLoop(void) { //gameplay loop, ends game when user presses specified character
     int ch;
-
     makeFOV(player);
     drawEverything();
 
     while(ch = getch()) { //input handling core of game
         if (ch == 'q') {break;}
-        gobTurn(); //gobTurn first to give chance to attack player
-        if (player->hP <= 0) {break;} //kills player if mons jugged them
-        drawEverything();
         handleInput(ch);
+        drawEverything();
+        gobTurn(); //mons first to give chance to attack player
+        spidTurn();
+        if (player->hP <= 0) {break;} //kills player if mons jugged them
         drawEverything();
     }
 }

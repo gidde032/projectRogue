@@ -10,6 +10,7 @@
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
 #define GOB_COLOR 3
+#define SPID_COLOR 4
 
 /* typedef struct {
     Tile** tiles;
@@ -89,12 +90,16 @@ int getSign(int a);
 //goblin funcs
 Entity* createGoblin(Position pos, int hP, int attack);
 void gobTurn(void);
-bool checkGColl(Position newPos);
 
+//spider funcs
+Entity* createSpid(Position pos, int hP, int attack);
+void spidTurn(void);
 
 //combat funcs
 void attack(Entity* attacker, Entity* defender);
 bool checkPColl(Position newPos);
+bool checkMonColl(Position newPos);
+int combatDist(Position a, Position b);
 
 //externs
 extern Entity* player;

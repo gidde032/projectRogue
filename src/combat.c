@@ -18,15 +18,19 @@ bool checkPColl(Position newPos) { //player collision physics
     return false;
 }
 
-bool checkGColl(Position newPos) { //goblin collision physics
+bool checkMonColl(Position newPos) { //monster collision physics
     for (int i = 0; i < monCount; i++) {
-        if ((player->pos.y == newPos.y) && (player->pos.x == newPos.x)) { //on gob turn checks if gob moves into and attacks player
+        if ((player->pos.y == newPos.y) && (player->pos.x == newPos.x)) { //on mon turn checks if mon moves into and attacks player
                 attack(mons[i], player);
                 return true;
         }
-        for (int j = 0; j < monCount; j++) { //stops goblins from grouping on same tile
+        for (int j = 0; j < monCount; j++) { //stops mons from grouping on same tile
             if ((mons[j]->pos.y == newPos.y) && (mons[j]->pos.x == newPos.x)) {return true;}
         }
     }
     return false;
+}
+
+int combatDist(Position a, Position b) {
+    return abs(a.y - b.y) + abs(a.x - b.x);
 }
