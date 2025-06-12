@@ -4,7 +4,7 @@ void attack(Entity* attacker, Entity* defender) {
     defender->hP -= attacker->attack;
     if (defender->hP <= 0) {
         defender->alive = false;
-        defender->ch = 'X';
+        defender->ch = 'X';   
     }
 }
 
@@ -31,6 +31,6 @@ bool checkMonColl(Position newPos) { //monster collision physics
     return false;
 }
 
-int combatDist(Position a, Position b) {
+int combatDist(Position a, Position b) { //distance checking func for player-mon combat
     return abs(a.y - b.y) + abs(a.x - b.x);
 }

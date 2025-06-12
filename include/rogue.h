@@ -9,8 +9,9 @@
 //color pairs for entities and tiles
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
-#define GOB_COLOR 3
-#define SPID_COLOR 4
+#define PLAYER_COLOR 3
+#define GOB_COLOR 4
+#define SPID_COLOR 5
 
 /* typedef struct {
     Tile** tiles;

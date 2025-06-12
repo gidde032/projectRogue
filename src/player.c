@@ -5,12 +5,12 @@ Entity* createPlayer (Position start_pos) { //takes starting position and spawns
     
     newPlayer->pos.y = start_pos.y;
     newPlayer->pos.x = start_pos.x;
-    newPlayer->ch = '(';
+    newPlayer->ch = 'J';
     newPlayer->maxHP = 100;
     newPlayer->hP = 75;
     newPlayer->attack = (rand() % 3) + 4;
     newPlayer->alive = true;
-    newPlayer->color = COLOR_PAIR(VISIBLE_COLOR);
+    newPlayer->color = COLOR_PAIR(PLAYER_COLOR);
     return newPlayer; 
 }
 
