@@ -12,6 +12,7 @@
 #define PLAYER_COLOR 3
 #define GOB_COLOR 4
 #define SPID_COLOR 5
+#define TROLL_COLOR 6
 
 /* typedef struct {
     Tile** tiles;
@@ -95,6 +96,10 @@ void gobTurn(void);
 //spider funcs
 Entity* createSpid(Position pos, int hP, int attack);
 void spidTurn(void);
+
+//troll funcs
+Entity* createTroll(Position pos, int hP, int attack);
+void trollTurn(void);
 
 //combat funcs
 void attack(Entity* attacker, Entity* defender);

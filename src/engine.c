@@ -11,6 +11,7 @@ bool cursesSetup(void) { //sets up ncurses library, displays error msg if comput
         init_pair(PLAYER_COLOR, COLOR_YELLOW, COLOR_BLACK);
         init_pair(GOB_COLOR, COLOR_GREEN, COLOR_BLACK);
         init_pair(SPID_COLOR, COLOR_MAGENTA, COLOR_BLACK);
+        init_pair(TROLL_COLOR, COLOR_CYAN, COLOR_BLACK);
         return true;
     }
     else {
@@ -31,6 +32,7 @@ void gameLoop(void) { //gameplay loop, ends game when user presses specified cha
         drawEverything();
         gobTurn(); //mons first to give chance to attack player
         spidTurn();
+        trollTurn();
         if (player->hP <= 0) {break;} //kills player if mons jugged them
         drawEverything();
     }

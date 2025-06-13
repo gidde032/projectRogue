@@ -14,7 +14,7 @@ int main(void) {
     if (workingComputer) {
         srand(time(NULL)); //seeds random generator
         map = createMapTiles(); //generates starting map
-        mons = calloc(100, sizeof(Entity*)); //creates monster array
+        mons = calloc(200, sizeof(Entity*)); //creates monster array
         start_pos = setupMap(); //generates starting position
         player = createPlayer(start_pos); //generates player
         gameLoop(); //gameplay loop

@@ -21,7 +21,7 @@ Position setupMap(void) {
     int y, x, height, width, n_rooms;
     //chestsPlaced = 0;
     //n_chests = (rand() % 6) + 4;
-    n_rooms = (rand() % 20) + 12;
+    n_rooms = (rand() % 14) + 18;
     Room* rooms = calloc(n_rooms, sizeof(Room));
     //Entity** chests = calloc(n_chests, sizeof(Entity));
     Position start_pos;
@@ -42,19 +42,25 @@ Position setupMap(void) {
         }
     }
 
-    for (int z = 0; z < n_rooms; z += 3) { //draws goblins for every 3 rooms & spiders for every 6; balances amt of mons
-        if ((z % 2) == 0) {
+    for (int z = 0; z < n_rooms; z += 3) { //draws goblins for every 3 rooms, spiders for every 6, & trolls for every 9; balances amt of mons
+        if ((z % 6) == 0) {
             int spidY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int spidX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
             Position spidPos = {spidY, spidX};
-            Entity* spid = createSpid(spidPos, ((rand() % 2) + 5), ((rand() % 4) + 3));
+            Entity* spid = createSpid(spidPos, ((rand() % 2) + 5), ((rand() % 3) + 3)); //creates spid w pos, hP, and atk
             mons[monCount++] = spid;
+            if ((z % 9) == 0) {
+                int trollY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+                int trollX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+                Position trollPos = {trollY, trollX};
+                Entity* troll = createTroll(trollPos, ((rand() % 6) + 16), ((rand() % 4) + 5)); //creates troll w pos, hP, and atk
+                mons[monCount++] = troll;
+            }
         }
         int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
         int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
         Position gobPos = {gobY, gobX};
-        Entity* gob = createGoblin(gobPos, ((rand() % 6) + 6), ((rand() % 3) + 1)); //creates gob hP and atk, hP is (6 +- 6) and atk is (1 +- 3) currently
-        mons[monCount++] = gob;
+        Entity* gob = createGoblin(gobPos, ((rand() % 4) + 8), ((rand() % 2) + 2)); //creates gob w pos, hP, and atk
     } 
 
     start_pos.y = rooms[0].center.y;
