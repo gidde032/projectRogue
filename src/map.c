@@ -42,7 +42,7 @@ Position setupMap(void) {
         }
     }
 
-    for (int z = 1; z < n_rooms; z += 3) { //draws goblins for every 3 rooms, spiders for every 6, & trolls for every 9; balances amt of mons
+    for (int z = 1; z < n_rooms; z += 3) { //balances monster and heal spawns
         if ((z % 15) == 1) {
             int medkitY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int medkitX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
