@@ -21,7 +21,7 @@ Position setupMap(void) {
     int y, x, height, width, n_rooms;
     //chestsPlaced = 0;
     //n_chests = (rand() % 6) + 4;
-    n_rooms = (rand() % 14) + 18;
+    n_rooms = (rand() % 14) + 20;
     Room* rooms = calloc(n_rooms, sizeof(Room));
     //Entity** chests = calloc(n_chests, sizeof(Entity));
     Position start_pos;
@@ -56,11 +56,19 @@ Position setupMap(void) {
                 Entity* troll = createTroll(trollPos, ((rand() % 6) + 16), ((rand() % 4) + 5)); //creates troll w pos, hP, and atk
                 mons[monCount++] = troll;
             }
+                if ((z % 15) == 0) {
+                    int medkitY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+                    int medkitX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+                    Position medkitPos = {medkitY, medkitX};
+                    Heal* medkit = createMedkit(medkitPos);
+                    heals[healCount++] = medkit;
+                }
         }
         int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
         int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
         Position gobPos = {gobY, gobX};
         Entity* gob = createGoblin(gobPos, ((rand() % 4) + 8), ((rand() % 2) + 2)); //creates gob w pos, hP, and atk
+        mons[monCount++] = gob;
     } 
 
     start_pos.y = rooms[0].center.y;
