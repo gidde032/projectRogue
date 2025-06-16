@@ -42,33 +42,35 @@ Position setupMap(void) {
         }
     }
 
-    for (int z = 0; z < n_rooms; z += 3) { //draws goblins for every 3 rooms, spiders for every 6, & trolls for every 9; balances amt of mons
-        if ((z % 6) == 0) {
+    for (int z = 1; z < n_rooms; z += 3) { //draws goblins for every 3 rooms, spiders for every 6, & trolls for every 9; balances amt of mons
+        if ((z % 15) == 1) {
+            int medkitY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+            int medkitX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+            Position medkitPos = {medkitY, medkitX};
+            Heal* medkit = createMedkit(medkitPos);
+            heals[healCount++] = medkit;
+        }
+        else if ((z % 12) == 1) {
+            int trollY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+            int trollX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+            Position trollPos = {trollY, trollX};
+            Entity* troll = createTroll(trollPos, ((rand() % 6) + 16), ((rand() % 4) + 5)); //creates troll w pos, hP, and atk
+            mons[monCount++] = troll;
+        }
+        else if ((z % 9) == 1) {
             int spidY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int spidX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
             Position spidPos = {spidY, spidX};
             Entity* spid = createSpid(spidPos, ((rand() % 2) + 5), ((rand() % 3) + 3)); //creates spid w pos, hP, and atk
             mons[monCount++] = spid;
-            if ((z % 9) == 0) {
-                int trollY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
-                int trollX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
-                Position trollPos = {trollY, trollX};
-                Entity* troll = createTroll(trollPos, ((rand() % 6) + 16), ((rand() % 4) + 5)); //creates troll w pos, hP, and atk
-                mons[monCount++] = troll;
-            }
-                if ((z % 15) == 0) {
-                    int medkitY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
-                    int medkitX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
-                    Position medkitPos = {medkitY, medkitX};
-                    Heal* medkit = createMedkit(medkitPos);
-                    heals[healCount++] = medkit;
-                }
         }
-        int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
-        int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
-        Position gobPos = {gobY, gobX};
-        Entity* gob = createGoblin(gobPos, ((rand() % 4) + 8), ((rand() % 2) + 2)); //creates gob w pos, hP, and atk
-        mons[monCount++] = gob;
+        else {
+            int gobY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1; //random y-pos for gob in room
+            int gobX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1; //random x-pos for gob in room
+            Position gobPos = {gobY, gobX};
+            Entity* gob = createGoblin(gobPos, ((rand() % 4) + 8), ((rand() % 2) + 2)); //creates gob w pos, hP, and atk
+            mons[monCount++] = gob;
+        }
     } 
 
     start_pos.y = rooms[0].center.y;

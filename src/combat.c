@@ -34,7 +34,7 @@ bool checkMonColl(Position newPos) { //monster collision physics
             if ((mons[j]->pos.y == newPos.y) && (mons[j]->pos.x == newPos.x)) {return true;}
         }
         for (int k = 0; k < healCount; k++) { //stops mons from going on same tile as heals
-            if ((heals[k]->pos.y == newPos.y) && (heals[k]->pos.x == newPos.x)) {return true;}
+            if (!(heals[k]->used) && (heals[k]->pos.y == newPos.y) && (heals[k]->pos.x == newPos.x)) {return true;}
         }
     }
     return false;
