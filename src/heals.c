@@ -17,3 +17,13 @@ Heal* createMedkit(Position pos) { //best hp regeneration item
     medkit->used = false;
     return medkit;
 }
+
+Heal* createBandage(Position pos) {
+    Heal* bandage = calloc(1, sizeof(Heal));
+    bandage->pos = pos;
+    bandage->ch = '*';
+    bandage->color = COLOR_PAIR(HEALS_COLOR);
+    bandage->healing = 25;
+    bandage->used = false;
+    return bandage;
+}

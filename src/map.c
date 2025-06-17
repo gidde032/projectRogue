@@ -43,21 +43,28 @@ Position setupMap(void) {
     }
 
     for (int z = 1; z < n_rooms; z += 3) { //balances monster and heal spawns
-        if ((z % 15) == 1) {
+        if ((z % 8) == 0) {
             int medkitY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int medkitX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
             Position medkitPos = {medkitY, medkitX};
             Heal* medkit = createMedkit(medkitPos);
             heals[healCount++] = medkit;
         }
-        else if ((z % 12) == 1) {
+        else if ((z % 7) == 0) {
             int trollY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int trollX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
             Position trollPos = {trollY, trollX};
             Entity* troll = createTroll(trollPos, ((rand() % 6) + 16), ((rand() % 4) + 5)); //creates troll w pos, hP, and atk
             mons[monCount++] = troll;
         }
-        else if ((z % 9) == 1) {
+        else if ((z % 5) == 0) {
+            int bandageY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+            int bandageX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+            Position bandagePos = {bandageY, bandageX};
+            Heal* bandage = createBandage(bandagePos);
+            heals[healCount++] = bandage;
+        }
+        else if ((z % 2) == 0) {
             int spidY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int spidX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
             Position spidPos = {spidY, spidX};

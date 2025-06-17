@@ -119,6 +119,7 @@ int combatDist(Position a, Position b);
 //heals funcs
 void useHeal(Heal* heal);
 Heal* createMedkit(Position pos);
+Heal* createBandage(Position pos);
 
 //externs
 extern Entity* player;
