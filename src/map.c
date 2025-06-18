@@ -43,7 +43,14 @@ Position setupMap(void) {
     }
 
     for (int z = 1; z < n_rooms; z += 3) { //balances monster and heal spawns
-        if ((z % 8) == 0) {
+        if ((z % 19) == 0) {
+            int potionY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
+            int potionX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
+            Position potionPos = {potionY, potionX};
+            Item* potion = createPotion(potionPos);
+            items[itemCount++] = potion;
+        }
+        else if ((z % 8) == 0) {
             int medkitY = (rand() % (rooms[z].height - 2)) + rooms[z].pos.y + 1;
             int medkitX = (rand() % (rooms[z].width - 2)) + rooms[z].pos.x + 1;
             Position medkitPos = {medkitY, medkitX};

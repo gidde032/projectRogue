@@ -16,8 +16,14 @@ bool checkPColl(Position newPos) { //player collision physics
         }
     }
     for (int i = 0; i < healCount; i++) {
-        if (!(heals[i]->used) && (heals[i]->pos.y == newPos.y) && (heals[i]->pos.x == newPos.x)) { //uses unused heals if on same tile as player
+        if (!(heals[i]->used) && (heals[i]->pos.y == newPos.y) && (heals[i]->pos.x == newPos.x)) { //uses unused heals/items if on same tile as player
             useHeal(heals[i]);
+            return true;
+        }
+    }
+    for (int i = 0; i < itemCount; i++) {
+        if (!(items[i]->used) && (items[i]->pos.y == newPos.y) && (items[i]->pos.x == newPos.x)) {
+            useItem(items[i]);
             return true;
         }
     }
@@ -35,6 +41,9 @@ bool checkMonColl(Position newPos) { //monster collision physics
         }
         for (int k = 0; k < healCount; k++) { //stops mons from going on same tile as unused heals
             if (!(heals[k]->used) && (heals[k]->pos.y == newPos.y) && (heals[k]->pos.x == newPos.x)) {return true;}
+        }
+        for (int l = 0; l < itemCount; l++) {
+            if (!(items[l]->used) && (items[l]->pos.y == newPos.y) && (items[l]->pos.x == newPos.x)) {return true;}
         }
     }
     return false;

@@ -14,6 +14,7 @@
 #define SPID_COLOR 5
 #define TROLL_COLOR 6
 #define HEALS_COLOR 7
+#define ITEM_COLOR 8
 
 /* typedef struct {
     Tile** tiles;
@@ -54,7 +55,7 @@ typedef struct { //entities such as the player
     bool alive;
 } Entity;
 
-typedef struct { //entities such as the player
+typedef struct { //heals like medkits & bandages
     Position pos;
     char ch;
     int color;
@@ -62,9 +63,19 @@ typedef struct { //entities such as the player
     bool used;
 } Heal;
 
+typedef struct { //Items that buff the player
+    Position pos;
+    char ch;
+    int color;
+    int atkAdded;
+    bool used;
+} Item;
+
 //draw funcs
 void drawMap(void);
 void drawEntity(Entity* entity);
+void drawHeal(Heal* heal);
+void drawItem(Item* item);
 void drawEverything(void);
 
 //main funcs
@@ -116,10 +127,12 @@ bool checkPColl(Position newPos);
 bool checkMonColl(Position newPos);
 int combatDist(Position a, Position b);
 
-//heals funcs
+//buffs funcs
 void useHeal(Heal* heal);
+void useItem(Item* item);
 Heal* createMedkit(Position pos);
 Heal* createBandage(Position pos);
+Item* createPotion(Position pos);
 
 //externs
 extern Entity* player;
@@ -130,5 +143,7 @@ extern Entity** mons;
 extern int monCount;
 extern Heal** heals;
 extern int healCount;
+extern Item** items;
+extern int itemCount;
 
 #endif

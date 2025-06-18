@@ -10,9 +10,10 @@ bool cursesSetup(void) { //sets up ncurses library, displays error msg if comput
         init_pair(SEEN_COLOR, COLOR_BLUE, COLOR_BLACK);
         init_pair(PLAYER_COLOR, COLOR_YELLOW, COLOR_BLACK);
         init_pair(GOB_COLOR, COLOR_GREEN, COLOR_BLACK);
-        init_pair(SPID_COLOR, COLOR_MAGENTA, COLOR_BLACK);
+        init_pair(SPID_COLOR, COLOR_MAGENTA + 8, COLOR_BLACK);
         init_pair(TROLL_COLOR, COLOR_CYAN, COLOR_BLACK);
         init_pair(HEALS_COLOR, COLOR_RED, COLOR_BLACK);
+        init_pair(ITEM_COLOR, 57, COLOR_BLACK);
         return true;
     }
     else {

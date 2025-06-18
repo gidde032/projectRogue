@@ -9,6 +9,8 @@ Entity** mons = NULL;
 Heal** heals = NULL;
 int monCount = 0;
 int healCount = 0;
+Item** items;
+int itemCount = 0;
 
 int main(void) {
     Position start_pos;
@@ -17,7 +19,8 @@ int main(void) {
         srand(time(NULL)); //seeds random generator
         map = createMapTiles(); //generates starting map
         mons = calloc(200, sizeof(Entity*)); //creates monster array
-        heals = calloc(200, sizeof(Heal*)); //creates heals array
+        heals = calloc(30, sizeof(Heal*)); //creates heals array
+        items = calloc(30, sizeof(Item*));//creates items array
         start_pos = setupMap(); //generates starting position
         player = createPlayer(start_pos); //generates player
         gameLoop(); //gameplay loop

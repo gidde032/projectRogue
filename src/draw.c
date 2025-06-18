@@ -23,12 +23,22 @@ void drawEntity(Entity* entity) {
 void drawHeal(Heal* heal) {
     mvaddch(heal->pos.y, heal->pos.x, heal->ch | heal->color);
 }
+
+void drawItem(Item* item) {
+    mvaddch(item->pos.y, item->pos.x, item->ch | item->color);
+}
+
 void drawEverything(void) { //clears window and draws player + map + mons + heals
     clear();
     drawMap();
     for (int i = 0; i < healCount; i++) {
         if (map[heals[i]->pos.y][heals[i]->pos.x].visible) {
             drawHeal(heals[i]);
+        }
+    }
+    for (int i = 0; i < itemCount; i++) {
+        if (map[items[i]->pos.y][items[i]->pos.x].visible) {
+            drawItem(items[i]);
         }
     }
     for (int i = 0; i < monCount; i++) { //draws all visible monsters
