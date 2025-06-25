@@ -11,6 +11,9 @@ int monCount = 0;
 int healCount = 0;
 Item** items;
 int itemCount = 0;
+int currentLevel = 0;
+int maxLevels = 3;
+int monsJugged = 0;
 
 int main(void) {
     Position start_pos;
@@ -23,7 +26,9 @@ int main(void) {
         items = calloc(30, sizeof(Item*));//creates items array
         start_pos = setupMap(); //generates starting position
         player = createPlayer(start_pos); //generates player
+        showTitleScreen(); 
         gameLoop(); //gameplay loop
+        showDeathScreen();
         closeGame(); //frees memory when quit
     }
     else {

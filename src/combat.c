@@ -1,10 +1,16 @@
 #include <rogue.h>
 
 void attack(Entity* attacker, Entity* defender) {
+    /* if (attacker == player) {
+        flash(); //visual feedback
+    } 
+    mvprintw(0, 0, "%c hits %c for %d damage!", 
+        attacker->ch, defender->ch, attacker->attack); */
     defender->hP -= attacker->attack;
     if (defender->hP <= 0) {
+        if (defender->ch != 'J') {monsJugged++;}
         defender->alive = false;
-        defender->ch = 'X';   
+        defender->ch = 'X';
     }
 }
 

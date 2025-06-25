@@ -78,10 +78,13 @@ void drawHeal(Heal* heal);
 void drawItem(Item* item);
 void drawEverything(void);
 
-//main funcs
+//engine funcs
 bool cursesSetup(void);
 void gameLoop(void);
 void closeGame(void);
+void levelUp(void);
+void showTitleScreen(void);
+void showDeathScreen(void);
 
 //map funcs
 Tile** createMapTiles(void);
@@ -145,5 +148,8 @@ extern Heal** heals;
 extern int healCount;
 extern Item** items;
 extern int itemCount;
+extern int currentLevel;
+extern int maxLevels;
+extern int monsJugged;
 
 #endif

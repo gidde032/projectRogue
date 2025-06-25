@@ -86,7 +86,18 @@ Position setupMap(void) {
             mons[monCount++] = gob;
         }
     } 
-
+    if (currentLevel < maxLevels) {
+        map[rooms[n_rooms-1].center.y][rooms[n_rooms-1].center.x].ch = '>';
+        map[rooms[n_rooms-1].center.y][rooms[n_rooms-1].center.x].walkable = true;
+    }
+    int hpInc = 3;
+    int atkInc = 2;
+    if (currentLevel > 0) {
+        for (int i = 0; i < monCount; i++) {
+            mons[i]->hP += hpInc;
+            mons[i]->attack += atkInc;
+        }
+    }
     start_pos.y = rooms[0].center.y;
     start_pos.x = rooms[0].center.x;
     free(rooms);

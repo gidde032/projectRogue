@@ -29,6 +29,11 @@ void handleInput(int input) { //controls, wasd movement
         case 'd':
             newPos.x++;
             break;
+        case 'r':
+            if (map[player->pos.y][player->pos.x].ch == '>') {
+                levelUp();
+            }
+            break;
         default:
             break;
     }
